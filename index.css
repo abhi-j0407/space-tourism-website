@@ -431,17 +431,36 @@ border: 0;
   background-color: hsl( var(--clr-white) / 1); 
 }
 
+.number-indicators > * {
+  padding: 0 1em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: 0;
+  border: 1px solid hsl( var(--clr-white) / .25);
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+  border: 1px solid hsl( var(--clr-white) / .5);
+}
+
+.number-indicators > [aria-selected="true"] {
+  border: 1px solid hsl( var(--clr-white) / 1);
+  background-color: hsl( var(--clr-white) / 1);
+  color: hsl( var(--clr-dark) );
+}
 
 /* ----------------------------- */
 /* Page specific background      */
 /* ----------------------------- */
-body {
-  background-size: cover;
-  background-position: bottom center;
-}
+
 /* home */
 .home {
   background-image: url(./assets/home/background-home-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  height: 100vh;
 }
 
 @media (min-width: 35rem) {
@@ -460,6 +479,9 @@ body {
 /* destination */
 .destination {
   background-image: url(./assets/destination/background-destination-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  height: 100vh;
 }
 
 @media (min-width: 35rem) {
@@ -477,7 +499,10 @@ body {
 
 /* crew */
 .crew {
-  background-image: url(./assets/home/background-crew-mobile.jpg);
+  background-image: url(./assets/crew/background-crew-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  height: 100vh;
 }
 
 @media (min-width: 35rem) {
@@ -490,6 +515,27 @@ body {
 @media (min-width: 45rem) {
   .crew {
       background-image: url(./assets/crew/background-crew-desktop.jpg);
+  }
+} 
+
+/* technology */
+.technology {
+  background-image: url(./assets/technology/background-technology-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  height: 100vh;
+}
+
+@media (min-width: 35rem) {
+  .technology {
+      background-position: center center;
+      background-image: url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width: 45rem) {
+  .technology {
+      background-image: url(./assets/technology/background-technology-desktop.jpg);
   }
 } 
 
@@ -599,7 +645,24 @@ body {
           'image';
   }
   
-  
+}
+
+/* technology layout */
+.grid-container--technology {
+  --flow-space: 2rem;
+  grid-template-areas: 
+    'title'
+    'image'
+    'tabs'
+    'content';
+}
+
+.grid-container--technology > picture {
+  grid-area: image;
+}
+
+.grid-container--crew > .number-indicators {
+  grid-area: tabs;
 }
 
 @media (min-width: 45em) {
@@ -655,4 +718,8 @@ body {
       max-width: 90%;
   }
 
+}
+
+.technology-info > p {
+  padding-inline: 1rem;
 }
